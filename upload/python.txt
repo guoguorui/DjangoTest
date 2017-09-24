@@ -1,0 +1,423 @@
+	所有标识符可以包括英文、数字以及下划线（_），但不能以数字开头
+
+以单下划线开头（_foo）的代表不能直接访问的类属性，需通过类提供的接口进行访问，不能用"from xxx import *"而导入，以双下划线开头的（__foo）代表类的私有成员；以双下划线开头和结尾的（__foo__）代表python里特殊方法专用的标识，如__init__（）代表类的构造函数
+
+建议在每个缩进层次使用 单个制表符 或 两个空格 或 四个空格 , 切记不能混用
+
+使用斜杠（ \）将一行的语句分为多行显示，语句中包含[], {} 或 () 括号就不需要使用多行连接符
+
+#和'''(""")被当成注释
+
+缩进相同的一组语句构成一个代码块，我们称之代码组。
+像if、while、def和class这样的复合语句，首行以关键字开始，以冒号( : )结束，该行之后的一行或多行代码构成代码组。
+我们将首行及后面的代码组称为一个子句(clause)
+
+变量赋值以后该变量才会被创建
+
+a, b, c = 1, 2, "john" 
+
+如果你的实要取得一段子串的话，可以用到变量[头下标:尾下标]，就可以截取相应的字符串，a[2]指第3，a[-2]指倒数第2
+
+列表list = [ 'runoob', 786 , 2.23, 'john', 70.2 ]
+元组不能二次赋值，相当于只读列表tuple = ( 'runoob', 786 , 2.23, 'john', 70.2 )
+列表是有序的对象结合，字典是无序的对象集合tinydict = {'name': 'john','code':6734, 'dept': 'sales'}
+
+**	幂 - 返回x的y次幂
+//	取整除 - 返回商的整数部分	9//2 输出结果 4 , 9.0//2.0 输出结果 4.0，与/的区别是int和float
+成员运算符in和not in
+身份运算符is是判断两个标识符是不是引用自一个对象，同理有is not（a=20,b=20,则if(a is b)为true）
+逻辑运算符and or not
+
+else if是elif
+不支持switch语句，用if代替
+支持同行判断：
+if ( var  == 100 ) : print "变量 var 的值为100" 
+
+不支持do while
+无限循环你可以使用 CTRL+C 来中断循环
+支持同行判断：while (flag): print 'Given flag is really true!'
+有while else语句：
+while count < 5:
+   print count, " is  less than 5"
+   count = count + 1
+else:
+   print count, " is not less than 5"
+
+for iterating_var in sequence:
+   statements(s)
+
+len() 返回列表的长度，range返回一个序列的数
+for index in range(len(fruits)):
+   print '当前水果 :', fruits[index]
+同while，for也有else语句
+
+pass 不做任何事情，一般用做占位语句
+
+数据类型是不允许改变的,这就意味着如果改变 Number 数据类型的值，将重新分配内存空间
+可以使用del语句删除一些 Number 对象引用
+Python还支持复数
+
+Python不支持单字符类型，单字符也在Python也是作为一个字符串使用
+原始字符串：
+print r'\n'		等效于 print '\\n'
+print R'\n'
+输出：
+\n
+\n
+格式化print "My name is %s and weight is %d kg!" % ('Zara', 21) 
+python三引号允许一个字符串跨多行，字符串中可以包含换行符、制表符以及其他特殊字符，自始至终保持一小块字符串的格式是所谓的WYSIWYG（所见即所得）格式的
+
+字典如此取值dict['Name']
+创建时如果同一个键被赋值两次，后一个值会被记住
+
+print "dict['Name']: ", dict['Name'];逗号被解析为空格符
+
+localtime = time.asctime( time.localtime(time.time()) )
+
+所有参数（自变量）在Python里都是按引用传递
+
+函数调用时可以这么传入参数printme( str = "My string");
+
+不定长参数def printinfo(*vartuple ):
+
+python 使用 lambda 来创建匿名函数
+
+total = 0; # 这是一个全局变量
+# 可写函数说明
+def sum( arg1, arg2 ):
+   #返回2个参数的和."
+   total = arg1 + arg2; # total在这里是局部变量.
+如果一个局部变量和一个全局变量重名，则局部变量会覆盖全局变量
+因此，如果要给全局变量在一个函数里赋值，必须使用global语句。
+
+
+导入模块的一部分from fib import fibonacci
+
+当你导入一个模块，Python解析器对模块位置的搜索顺序是：
+当前目录
+如果不在当前目录，Python 则搜索在 shell 变量 PYTHONPATH 下的每个目录。
+如果都找不到，Python会察看默认路径。UNIX下，默认路径一般为/usr/local/lib/python/。
+
+命名空间是一个包含了变量名称们（键）和它们各自相应的对象们（值）的字典
+
+要想在包中导入类中的成员，需要先在__init__.py里使用显式的导入语句
+
+file.flush()
+刷新文件内部缓冲，直接把内部缓冲区的数据立刻写入文件, 而不是被动的等待输出缓冲区写入。
+
+try:
+<语句>        #运行别的代码
+except <名字>：
+<语句>        #如果在try部份引发了'name'异常
+except <名字>，<数据>:
+<语句>        #如果引发了'name'异常，获得附加的数据
+else:
+<语句>        #如果没有异常发生
+如果在try后的语句里发生了异常，却没有匹配的except子句，异常将被递交到上层的try，或者到程序的最上层（这样将结束程序，并打印缺省的出错信息）。 
+以使用raise语句自己触发异常
+"except"语句必须有用相同的异常来抛出类对象或者字符串
+raise Exception("Invalid level!", level)
+except "Invalid level!":
+
+
+python的类变量相当于java的静态变量，self即是this
+emp1.age = 7  # 添加一个 'age' 属性
+
+在python中继承中的一些特点：
+    1：在继承中基类的构造（__init__()方法）不会被自动调用，它需要在其派生类的构造中亲自专门调用。
+    2：在调用基类的方法时，需要加上基类的类名前缀，且需要带上self参数变量。区别于在类中调用普通函数时并不需要带上self参数
+    3：Python总是首先查找对应类型的方法，如果它不能在派生类中找到对应的方法，它才开始到基类中逐个查找。（先在本类中查找调用的方法，找不到才去基类中找）。
+因为受到多重继承的影响
+
+可以使用 object._className__attrName 访问私有变量
+
+re.match只匹配字符串的开始，如果字符串开始不符合正则表达式，则匹配失败，函数返回None；而re.search匹配整个字符串，直到找到一个匹配
+re.sub用于替换字符串中的匹配项
+
+有关 GET 请求的其他一些注释：
+
+    GET 请求可被缓存
+    GET 请求保留在浏览器历史记录中
+    GET 请求可被收藏为书签
+    GET 请求不应在处理敏感数据时使用
+    GET 请求有长度限制
+    GET 请求只应当用于取回数据
+
+#coding=utf-8	有时还是必要的
+
+python3
+
+ r"this is a line with \n" 则\n会显示，并不是换行
+
+在Python 3里，只有一种整数类型 int，表示为长整型，没有 python2 中的 Long
+
+数值的除法（/）总是返回一个浮点数，要获取整数使用//操作符
+在混合计算时，Python会把整型转换成为浮点数
+
+虽然tuple的元素不可改变，但它可以包含可变的对象，比如list列表
+
+tup2 = (20,) # 一个元素，需要在元素后添加逗号
+
+可以使用大括号({})或者 set()函数创建集合
+
+chmod +x test.py后就可./test.py
+
+^按位异或运算符
+
+关键字end可以用于将结果输出到同一行，或者在输出的末尾添加不同的字符 print(b, end=',')
+
+range(5)是0,1,2,3,4
+
+it = iter(list)    # 创建迭代器对象
+for x in it:
+
+在 Python 中，使用了 yield 的函数被称为生成器（generator）。
+跟普通函数不同的是，生成器是一个返回迭代器的函数，只能用于迭代操作，更简单点理解生成器就是一个迭代器。
+在调用生成器运行的过程中，每次遇到 yield 时函数会暂停并保存当前所有的运行信息，返回yield的值。并在下一次执行 next()方法时从当前位置继续运行。
+以下实例使用 yield 实现斐波那契数列：
+{
+#!/usr/bin/python3
+
+import sys
+
+def fibonacci(n): # 生成器函数 - 斐波那契
+    a, b, counter = 0, 1, 0
+    while True:
+        if (counter > n): 
+            return
+        yield a
+        a, b = b, a + b
+        counter += 1
+f = fibonacci(10) # f 是一个迭代器，由生成器返回生成
+
+while True:
+    try:
+        print (next(f), end=" ")
+    except StopIteration:
+        sys.exit()
+}
+
+lamda表达式:
+sum = lambda arg1, arg2: arg1 + arg2;
+ # 调用sum函数
+print ("相加后的值为 : ", sum( 10, 20 ))
+
+
+列表推导式提供了从序列创建列表的简单途径。通常应用程序将一些操作应用于某个序列的每个元素，用其获得的结果作为生成新列表的元素，或者根据确定的判定条件创建子序列。 
+[3*x for x in vec if x > 3][x*y for x in vec1 for y in vec2]
+
+
+ t = 12345, 54321, 'hello!'此时t为元组
+
+当前目录下存在与要引入模块同名的文件，就会把要引入的模块屏蔽掉，可以在脚本中修改sys.path来引入一些不在搜索路径中的模块。
+
+类似js将函数赋给变量
+fib = fibo.fib
+fib(500)
+
+from fibo import *
+因为引入的其它来源的命名，很可能覆盖了已有的定义
+
+模块除了方法定义，还可以包括可执行的代码。这些代码一般用来初始化这个模块。这些代码只有在第一次被导入时才会被执行
+
+每个模块都有一个__name__属性，当其值是'__main__'时，表明该模块自身在运行，否则是被引入
+
+有些模块直接被构建在解析器里，组件会根据不同的操作系统进行不同形式的配置，比如 winreg 这个模块就只会提供给 Windows 系统
+
+from sound.effects.echo import echofilter
+import语法会首先把item当作一个包定义的名称，如果没找到，再试图按照一个模块去导入。如果还没找到，恭喜，一个:exc:ImportError 异常被抛出了
+
+如果使用形如import item.subitem.subsubitem这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字
+
+通过pickle模块的序列化操作我们能够将程序中运行的对象信息保存到文件中去，永久存储。
+pickle.dump(obj, file, [,protocol])
+x = pickle.load(file)
+
+如果在执行try子句的过程中发生了异常，那么try子句余下的部分将被忽略。如果异常的类型和 except 之后的名称相符，那么对应的except子句将被执行。最后执行 try 语句之后的代码
+
+关键词 with 语句就可以保证诸如文件之类的对象在使用完之后一定会正确的执行他的清理方法
+with open("myfile.txt") as f:
+就算在处理过程中出问题了，文件 f 总是会关闭
+
+在类内部的方法中使用私有变量时 self.__private_attrs，私有方法同理
+
+glob模块提供了一个函数用于从目录通配符搜索中生成文件列表
+命令行参数以链表形式存储于 sys 模块的 argv 变量
+
+>>> re.sub(r'(\b[a-z]+) \1', r'\1', 'cat in the the hat')	#匹配第n个分组的子表达式,\1指(\b[a-z]+)，合2为1
+'cat in the hat'
+
+Python3 中可以使用 json 模块来对 JSON 数据进行编解码，它包含了两个函数：
+json.dumps(): 对数据进行编码。
+json.loads(): 对数据进行解码。
+
+cgi程序并没有直接发送给客户端，而是交由服务器解析HTTP头部和内容
+
+以Unicode表示的str通过encode()方法可以编码为指定的bytes
+
+从网络或磁盘上读取了字节流，那么读到的数据就是bytes。要把bytes变为str，就需要用decode()方法
+
+encode的作用，使我们看到的直观的字符转换成计算机内的字节形式。decode刚好相反，把字节形式的字符转换成我们看的懂的、直观的、“人模人样”的形式
+
+编码转换时，通常需要以unicode作为中间编码，即先将其他编码的字符串解码（decode）成unicode，再从unicode编码（encode）成另一种编码。	
+
+
+解决中文显示问题，文件编码不变
+import codecs, sys
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+解释：
+{
+print() adds a newline to the given string, sys.stdout.write() takes a str() and which it encodes to sys.stdout.encoding and writes the resulting bytes() object to sys.stdout.buffer, which is what sys.stdout wraps and sys.stdout.buffer is basically the low-level interface and therefore sys.stdout.buffer.write() takes a bytes() object.
+}
+
+在linux下进行编码改变 iconv -f gbk -t utf8 /tmp/c.txt -o /tmp/c
+
+汉字在Unicode编码和UTF-8编码中通常是不同的
+
+在Python3中，以字节形式表示的字符串则必须加上前缀b
+
+字符在计算机的内存中统一是以Unicode编码的。只有在字符要被写进文件、存进硬盘或者从服务器发送至客户端（例如网页前端的代码）时会变成utf-8
+
+\uxxxx’格式的Unicode字符可被辨识且被等价于str类型
+
+bg2312用两个字节表示中文，兼容ASCII，属于ANSI中的一种，而gbk是其扩展，支持繁体和复杂汉字
+
+hasattr(s, 'decode')用于属性判断
+
+Python 3中的str是未编码的，str有一个encode方法，调用这个方法后将产生一个编码后的byte类型的字符串（这有点像Python 2中的str）。而byte类型的字符串支持解码操作。
+
+
+codecs模块的强大之处在于它提供了流的方式来处理字符串编码
+file = codecs.open('test.txt','r','utf-8')
+file = codecs.open('test.txt','w','utf-8')
+{
+    #coding:utf8 2   
+    import codecs  
+    # 打开文件 如果此处用codecs.open()方法打开文件，就不用创建reader和writer   
+    fin = open('test.txt', 'r')   
+    fout = open('utf8.txt', 'w')   
+    # 获取 StreamReader   
+    reader = codecs.getreader('gbk')(fin)   
+    # 获取 StreamWriter   
+    writer = codecs.getwriter('utf8')(fout)   
+    din = reader.read(10)   
+    while din:   
+        writer.write(din)   
+        din = reader.read(10)  
+}
+
+
+若是用了binary，则str的输出要encode（）为byte
+
+
+升级python可能导致一些系统程序受影响，比如yum,其/usr/bin/python可能需要调整为旧版
+
+
+对一个str进行chardet.detect(str) 则
+raise ValueError('Expected a bytes object, not a unicode object')
+
+实验得出:
+read()时，str可以正常由原来的编码encode()成bytes,但程序默认用utf-8来decode()，所以出现 'utf-8' codec can't decode byte，
+而codecs.open()用的编码在read时就会被应用到decode()
+同理，write()时，str先被encode()成bytes,再decode()成utf-8，encode的编码可以在codecs的open()方法修改
+反正用什么encode的就要用什么decode，而unicode是在内存中的中间媒介
+f1 = codecs.open('test.txt','r','gbk')
+f2 = codecs.open('testTwo.txt','w','utf-8')
+
+file.close()可以将缓存立即写入硬盘，避免在后续的程序读取不到
+
+要读取非ASCII编码的文本文件，可以以二进制模式打开，避免了打开时的解码错误，再解码
+ f = open('/Users/michael/gbk.txt', 'rb')  
+ u = f.read().decode('gbk') 
+
+获取上传的gbk文件，转换成utf-8保存
+{
+#!/usr/bin/python3
+import cgi, os
+import cgitb; cgitb.enable()
+form = cgi.FieldStorage()
+
+import codecs, sys
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+
+# 获取文件名
+fileitem = form['filename']
+
+# 检测文件是否上传
+if fileitem.filename:
+   # 设置文件路径 
+   fn = os.path.basename(fileitem.filename)
+   f1= open('/tmp/'+fn, 'wb')
+   f1.write(fileitem.file.read())
+   f1.close()
+   f2=codecs.open('/tmp/'+fn,'r','gbk')
+   a=f2.read()
+   f2.close()
+   f3=codecs.open('/tmp/'+fn,'w','utf-8')
+   f3.write(a+'\n')
+   f3.close()
+
+   message = '文件 "' + fn + '" 上传成功'
+   
+else:
+   message = '文件没有上传'
+   
+print ("""\
+Content-Type: text/html\n
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+   <p>%s</p>
+</body>
+</html>
+""" % (message,))
+}
+
+nohup your_command > /dev/null 2>&1 &避免了后台输出对前台的干扰
+
+ajax和python交互http://www.cnblogs.com/liuweiqiang/p/3859130.html
+注意server开的是代理的8080端口，与apache默认的80端口有区别
+python3使用from http.server import HTTPServer,CGIHTTPRequestHandler
+                  包   模块               类            类
+
+就算是在注解中，编码问题也是不能避免的
+
+发送post请求的时候必须携带请求头
+
+有些动作的执行需要重新编译python才能生效，比如yum install一些devel
+
+内置的函数 dir() 可以找到模块内定义的所有名称
+
+目录只有包含一个叫做 __init__.py 的文件才会被认作是一个包，主要是为了避免一些滥俗的名字（比如叫做 string）不小心的影响搜索路径中的有效模块。
+
+注意当使用from package import item这种形式的时候，对应的item既可以是包里面的子模块（子包），或者包里面定义的其他名称，比如函数，类或者变量。
+如果使用形如import item.subitem.subsubitem这种导入形式，除了最后一项，都必须是包，而最后一项则可以是模块或者是包，但是不可以是类，函数或者变量的名字。 
+
+构造对象并不需要new关键字
+
+import 模块 import 函数，因为先指明了该函数是属于哪个模块的，所以可以直接使用函数，其他情况反之
+
+列表等最后有个逗号代表该集合只有一个元素
+
+django中：
+
+不能使用语句if request.POST来判断是否使用HTTP POST方法；应该使用if request.method == "POST" (参见本表的method属性)。
+
+POST不包括file-upload信息
+
+FILES
+包含所有上传文件的类字典对象。FILES中的每个Key都是<input type="file" name="" />标签中name属性的值. 
+注意：只有在请求方法是POST，并且请求页面中<form>有enctype="multipart/form-data"属性时FILES才拥有数据。否则，FILES 是一个空字典。
+
+通过file_obj.name获取文件名称，file_obj.read()方法获取文件内容。上传的文件放在内存中，所以此方法只适合小文件上传。
+
+user = request.POST.get('user')，如何key对应多个值，就返回最后一个
+
+但send对象为form对象,此种方式不需要设置信息请求头
+
+在django中，即便文件是用FormData存储的，任然是用request.FILES提取在，这种情况下不需要设置header和multipart/form-data,也无需formdata，获取文件对象var fileObj=document.getElement("myfile").files[0];
+
+indent识别空格和tab，可能混用了

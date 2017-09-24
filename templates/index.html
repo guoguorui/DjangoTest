@@ -1,0 +1,1474 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<title>国锐个人网页</title>
+	<meta charset="utf-8">
+
+
+	<link rel="stylesheet" href="css/bootstrap.min.css">  
+	<script src="jquery-3.1.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<style>
+
+
+
+	/*      背景图片暂不考虑添加进去
+	body{
+			background-image:url('theFirstCode.jpg');
+			background-repeat:no-repeat;
+			background-position:1040px 430px;
+			background-attachment:fixed;
+	}
+
+	*/
+
+
+
+	.flex-container{
+		display:flex;	
+		justify-content:center;
+		
+	}
+	#myUl {
+		list-style-type: none;
+		margin:0px;
+		padding-left:0px;
+		background-color:#8AC007;
+		border-radius:25px;
+		font-size:17px;
+	}
+
+	#myUl li {
+		float: left;
+	}
+
+	#myUl li a{
+		display: inline-block;
+		color: white;
+		text-align: center;
+		padding: 14px 16px;
+		text-decoration: none;
+	}
+
+	#myUl li a:hover{
+			background-color:#696969;
+	}
+
+	#myUl li:first-child a{
+		border-radius:25px 0px 0px 25px;
+	}
+
+	#myUl li:last-child a{
+		border-radius:0px 25px 25px 0px;
+	}
+
+	#myDropdown{
+		position:relative;
+		text-align:center;
+	}
+
+	#myDropbtn{
+		height:40px;
+		color:white;
+		padding:10px;
+	}
+
+	#myDropdown-content{
+			display:none;
+			min-width:189px;
+			position:absolute;
+			background-color:#f9f9f9;
+			top:1px;
+			left:190px;
+			border-radius:0px 10px 10px 0px;
+	}
+
+	#myDropdown:hover #myDropdown-content{
+		display:block;
+		background-color:#696969;
+		z-index:1
+		
+	}
+
+	#myDropdown:hover #myDropbtn{
+		background-color:#696969;
+	}
+
+	#myDropdown-content a{
+		padding:12px 16px;
+		display:block;
+		text-decoration:none;
+		height:39px;
+		border-bottom:0.1px solid white!important;     /* 没加important加没有border显示出阿里 */
+	}
+
+	#myDropdown-content a:hover{
+		background-color:#696969;
+	}
+
+	#myDropdown-content a:first-child{
+		border-radius:0px 10px 0px 0px;
+	}
+
+	#myDropdown-content a:last-child{
+		border-radius:0px 0px 10px 0px;
+	}
+
+
+	#left-nav {
+			width: 190px;
+			margin-top:0px;
+			margin-left:10px;
+			border-radius:25px;
+			background-color:#8AC007;
+			z-index:1;
+			font-size:16px;	
+			position:fixed;
+	}
+
+
+	#left-nav li a{
+		color:white;
+		text-align:center;
+		margin:0px;
+
+	}
+
+	#left-nav li a:link,#left-nav li a:visited{
+		background-color:#8AC007;
+		border:0px;
+	}
+		
+	#left-nav li a:hover,#left-nav li a:active{
+		background-color:#696969;
+	}
+
+	#left-nav li{
+		border-top:0.1px solid white;
+		margin-top:0px;
+	}
+
+	#left-nav li:first-child{
+		border-top:none;
+		
+	}
+	  
+
+	#left-nav li:first-child a{
+		border-radius:25px 25px 0px 0px;  			/* 重点,它与left-nav中的border-radius缺一不可 */
+	} 
+
+	#left-nav li:last-child a{
+		border-radius:0px 0px 25px 25px;  
+	} 
+
+	.tab-content{
+		font-size:18px;
+		border:5px solid #8AC007; 
+		margin-top:10px;
+		padding:10px;
+		font-weight:bold;
+		
+	}
+
+	#left-nav.affix{
+		top:70px;
+	}
+
+	.container{
+		margin-left:-10px;
+		margin-top:150px;
+		position:fixed;
+	}
+
+	/*
+	#kw{
+		width:200px;
+		border:2px solid #87A900;
+		line-height:30px;
+		font-size:16px;
+		margin-right:0px;
+		
+	}
+
+
+	#web-search{
+		border:2px solid #87A900;
+		padding:7px;
+		margin-left:0px;
+		line-height:30px;
+		font-size:16px;
+		
+	}
+	*/
+
+	#append{
+		border:1px solid #87A900;
+		border-top:none;
+		width:200px;
+		display:none;
+		
+		
+	}
+
+	.item{
+		padding:5px;
+		cursor:pointer;
+		color:white;
+		background-color:#8AC007;
+	}
+
+	.addBg{
+		background-color:#696969;
+	}
+
+	
+	</style>
+
+	<head>
+
+	<body>
+	<!-- 以下组件没有用框架的自定义导航栏 -->
+	<div class="flex-container">
+	<ul id="myUl">
+	<li><a href="http://tieba.baidu.com/f?kw=%BA%A3%B0%C9%B7%D6%CE%F6&fr=ala0&tpl=5" target="_blank">分析吧</a></li>
+	<li><a href="http://www.iqiyi.com/a_19rrhb3xvl.html?vfm=2008_aldbd" target="_blank">海贼</a></li>
+	<li><a href="http://202.192.72.25/netadmin/public/gzbx/index.jsp" target="_blank">内网保修</a></li>
+	<li><a href="http://linux.vbird.org/" target="_blank">VBird</a></li>
+	<li><a href="http://fanyi.baidu.com/?aldtype=16047#auto/zh" target="_blank">Translation</a></li>
+	<li><a href="http://www.runoob.com" target="_blank">Runoob</a></li>
+	<li><a href="https://www.youtube.com/results?search_query=twice+" target="_blank">YouTube</a></li>
+	<li><a href="http://stackoverflow.com/" target="_blank">StackOverflow</a></li>
+	<li><a href="https://github.com/guoguorui" target="_blank">Github</a></li>
+
+	<!-- 下拉菜单模板
+	<div class="dropdown" id="myDropdown">
+	<div class="dropbtn" id="myDropbtn">下拉菜单</div>
+	<div class="dropdown-content" id="myDropdown-content">
+	<a href="http://www.baidu.com">链接1</a>
+	<a href="http://www.baidu.com">链接2</a>
+	<a href="http://www.baidu.com">链接3</a>
+	</div>
+	</div>
+	-->
+
+	</ul>
+	</div>
+
+
+
+	 
+	<!-- 以下是用了BootStrap的输入框和搭配的按钮,并且兼容了百度搜索引擎的接口 -->
+	<div style="margin-right:100px; margin-top:14px; padding-left:800px;">
+	<form class="bs-example bs-example-form" role="form" action="http://www.baidu.com/baidu" target="_blank">
+	<div class="input-group">
+	<input class="form-control" type="text" placeholder="Please input to Baidu" name="word" baiduSug=1 >
+	<span class="input-group-btn"> 
+	<input type="submit" value="百度" class="form-control">
+	</span>
+	</div>
+	</form>
+	<script charset="gbk" src="http://www.baidu.com/js/opensug.js"></script>  
+	</div>
+
+	<!-- 以下是用了BootStrap的输入框和搭配的按钮,并且兼容了谷歌搜索引擎的接口 -->
+	<div style="margin-right:100px; margin-top:14px; padding-left:800px;">
+	<form class="bs-example bs-example-form" role="form" action="http://www.google.com/search">
+	<div class="input-group">
+	<input class="form-control" type="text" placeholder="Please input to Google" name="q">
+	<span class="input-group-btn"> 
+	<input type="submit" value="Google" class="form-control">
+	</span>	
+	</div>
+	</form>
+	</div>
+
+
+
+	<div class="row">
+	<!-- 以下是用了BootStrap标签页的  左侧导航栏 -->
+	<div class="col-lg-2" id="left-nav-supreme">
+	<ul class="nav nav-tabs  nav-stacked" id="left-nav"  >
+	<li class="active"><a href="#MySQL" data-toggle="tab">MySQL</a></li>
+	<li><a href="#Operation" data-toggle="tab">Operation</a></li>
+	<li>
+	<div class="dropdown" id="myDropdown">
+	<div class="dropbtn" id="myDropbtn">Linux</div>
+	<div class="dropdown-content" id="myDropdown-content">
+	<a href="#LinuxProject" data-toggle="tab">Linux Project</a>
+	<a href="http://www.baidu.com">链接2</a>
+	<a href="http://www.baidu.com">链接3</a>
+	</div>
+	</div>
+
+	<li><a href="http://baidu.com">E</a></li>
+	<li><a href="http://baidu.com">F</a></li>
+
+	</ul>
+
+
+	<!--以下是站内搜索 -->
+	<div style="margin-right:50px; margin-top:220px; padding-left:15px; position:fixed;">
+	<form class="bs-example bs-example-form" role="form" onsubmit="doSearch()">
+	<div class="input-group">
+	<input id="kw" class="form-control" onkeyup="getContent(this)" type="text" placeholder="Local Search" style="width:120px;" autocomplete="off">   <!-- autocomplete不要干扰自定义的提示框-->
+	<span class="input-group-btn"> 
+	<input type="submit" value="站内" class="form-control"></input>
+	</span>
+	</div>
+	</form>
+	<div id="append" style="width:120px;"></div>
+
+		<script>
+		var data=["MySQL",
+			"Operation",
+			"Linux Project",
+			"你最珍贵",
+			"你是我最好的朋友",
+			"你画我猜",
+			"你是笨蛋",
+			"你懂得",
+			"你为我着迷",
+			"你是我的眼"];
+			
+		$(document).ready(function(){
+			$(document).keydown(function(e){
+				e=e || window.event;
+				var keycode=e.which? e.which:e.keycode;
+				if(keycode==38){
+					if($(".item").text()=="")
+						return false;
+					movePre();
+					e.preventDefault();                             //让页面不要随之滚动
+				}
+				
+				else if(keycode==40){
+					if($(".item").text()=="")
+						return false;
+					$("#kw").blur();
+					if($(".addBg").text()=="")
+						$(".item").eq(0).addClass("addBg");
+					else
+						moveNext();
+					e.preventDefault();
+				}
+				
+				else if(keycode==13){
+					dojob();
+				}
+				
+				   
+			});
+			
+			var dojob=function(){
+				var index;
+				for(var i=0;i<$(".item").length;i++){
+					if($(".item").eq(i).hasClass("addBg"))
+						index=i;
+				}
+				if(index!=null){
+				$("#kw").val($(".item").eq(index).text());
+				$("#append").hide().html("");
+				doSearch();	
+				}
+				else 
+					doSearch();
+			}
+			
+			var doSearch=function(){
+				var temp=$("#kw").val();
+				temp="a[href='#"+temp+"']";
+				temp=trimSpace(temp);								  //尽管id不能加空格，但搜索提示框可以显示空格再除去
+				$(temp).tab('show')
+			}
+			
+			var trimSpace=function(obj){
+				var a=obj.replace(/\s/g,"");                          //a是必须的
+				return a;
+			}
+			
+			var movePre=function(){
+				$("#kw").blur();
+				var a=$(".addBg").prevAll().length;
+				if(a==0)
+					$(".item").removeClass("addBg").eq($(".item").length-1).addClass("addBg");
+				else
+					$(".item").removeClass("addBg").eq(a-1).addClass("addBg");
+			}
+			
+			var moveNext=function(){
+				var a=$(".addBg").prevAll().length;
+				if(a==$(".item").length-1)
+					$(".item").removeClass("addBg").eq(0).addClass("addBg");
+				else
+					$(".item").removeClass("addBg").eq(a+1).addClass("addBg");
+			}
+		});
+
+		var getContent=function(obj){
+			var a=$(obj).val();
+			if(a==""){						//防止清空输入后提示框还存在，return语句也是必要的,否则所有的提示框内容均会出现
+				$("#append").hide().html("");
+				return;
+			}
+			var b="";
+			for(var i=0;i<data.length;i++)
+			{
+				if(data[i].indexOf(a)>=0 || data[i].toLowerCase().indexOf(a)>=0)
+					b=b+"<div class='item' onmouseenter='changeBg(this)' onclick='changeOnClick(this)'>"+data[i]+"</div>";
+			}
+			
+			$("#append").show().html(b);
+			
+		}
+
+		var changeBg=function(obj){
+			var index=$(obj).prevAll().length;
+			$(".item").removeClass("addBg").eq(index).addClass("addBg");
+		}
+
+		var changeOnClick=function(obj){
+			var a=$(obj).text();
+			$("#kw").val(a);			//漏掉“”是很严重的后果
+			$("#append").hide().html("");	
+		}
+		</script>
+		</div> 		<!-- 站内搜索 end-->
+	</div>
+	<!-- 以下是文章的内容 -->
+	<div  class="col-lg-8"  id="artical">
+	<!-- 第一篇文章 -->
+	<div class="tab-content">
+	<div id="MySQL" class="tab-pane fade in active">
+	<h1 style="text-align:center;">MySQL</h1>
+	<p id="MySQL-content">
+	安装时要把bin目录设为环境变量
+	配置ini文件
+	{
+	[mysqld]
+	basedir =D:\Program Files\mysql\mysql-5.6.35-winx64
+	datadir =D:\Program Files\mysql\mysql-5.6.35-winx64\data
+	port =3306
+	max_connections=200
+	}
+	cmd（管理员）下
+	mysqld -install
+	net start mysql
+	以mysql -u root -p登录
+	以mysqladmin -u root -p password进行修改密码
+	mysql默认不区分大小写
+	 source命令前要先选中数据库
+	help后接关键词可以进行查询
+	show tables前要先选择数据库
+	show columns from customers进行列信息查询
+	show grants查看用户权限
+	select prod_name from products从表中抽取列
+	，表示并列
+	*是通配符
+	distinct表示去除重复项select distinct vend_id from products
+	limit限定输出的数量select prod_name from products limit 5即便输出未必有5，也尽可能地输出
+	select prod_name from products order by prod_name也可以用非选择列进行排序
+	desc将默认的升序改为降序select prod_price from products order by prod_price desc
+	desc只应用到直接位于其前面的一个列
+	select prod_price from products order by prod_price desc limit 1可以调出最贵的价格
+	select prod_name,prod_price from products where prod_price between 5 and 10进行输出过滤,如果同时进行排序，应该过滤后再排序，否则浪费性能
+	select prod_name,prod_price from products where prod_name='fuses'比较对象如果是字符串，则需加引号
+	默认情况下单引号和双引号效果相同，特殊情况下用单引号包含双引号
+	除非直接指出null，否则过滤时有关null的行不会被给出
+	select prod_name,prod_price from products where vend_id=1002 or vend_id=1003 and prod_price>=10其中and的优先级比or高，为保证正确的次序可以添加括号
+	select prod_name,prod_price from products where vend_id in (1002,1003)使用in而不是or的最大优点是可以包含其他select语句
+	in前可以加not，此时在语义上包含and
+	select prod_name,prod_id from products where prod_name like 'jet%'通配符%表示任何字符出现任意次数，而_只能匹配一个字符而不是多个字符
+	select prod_name from products where prod_name regexp '1000'与like的区别是like必须全部匹配，而正则不用
+	select vend_name from vendors where vend_name regexp '\\.'对于转义，mysql要求
+	要两个\\
+	正则复习：.任意多个任意字符	*任意前一个字符	？任意前0或1个{0,1}	+任意前至少一个{1，}
+	</p>
+	</div>
+	<script>
+	var a=document.getElementById("MySQL-content").innerHTML;
+	var b=a.replace(/\n/g,"</br></br>");
+	document.getElementById("MySQL-content").innerHTML=b;
+	</script>
+
+	<div id="Operation" class="tab-pane fade">
+	<h1 style="text-align:center;">Operation</h1>
+	<p id="Operation-content">
+	系统模糊认识——
+	windows 95使windows开始流行
+
+	windows XP自2001年发布
+
+	电脑本地硬盘安装的前提是要在已经正常运行的操作系统中
+
+	升级安装区别于全新安装，它保留原系统文件、设置和应用程序
+
+	bios——
+
+	bios设置时仅能使用键盘，有方向键，enter键，tab键，+-键
+
+	bios载入默认设置拯救一切错误设置,在exit中的load setup defaults
+
+	使用系统为Windows 8、Windows 8.1，需要先将快速启动功能关闭，之后才能进入BIOS
+
+	分区认识——
+
+	转换分区格式在开始运行cmd后输入Convert X： /FS： NTFS命令，此时只能从fat升为ntfs
+	 
+	核心安装——
+	U盘需要刻录光盘映像（ultraiso），若是iso则不需解压
+
+	用U盘装时一定要制成启动盘，然后将win7（以此为例）iso解压到u盘根目录，并将文件bootmgr（不是EFI文件的那个）重命名为win7mgr（win 10则为win8mgr），可按照原路进行归还空间（进行初始化）
+
+	直接在硬盘安装的情况下系统不能逆流，而且不能在32位中安装64位
+
+	安装时跳过更新系统文件
+
+	装xp时在工作组或计算机域里将电脑设置为WORKGROUP，非域成员
+
+	升级系统将需解决驱动程序的系统兼容性以及软件和操作系统之间冲突的问题                            
+
+	本地账户非管理员
+
+	windows7升级顾问可检测硬件的兼容性
+
+	从始自终，备份都很重要
+
+	多操作系统——
+	多操作系统中，在原系统中安装需要考虑修复因安装多操作系统引导出错而不能启动原有操作系统的问题，如原win7装winxp，此时只有通过修复系统引导菜单，才能重启原有操作系统，选则NTBOOTautofix进行修复
+
+	使用硬盘安装时，只能装同位数的系统
+
+	基本上是在不同分区装不同系统
+
+	此电脑属性中的高级系统设置里可设置默认系统启动项
+
+	多操作系统的管理软件为EasyBCD
+
+	卸载其中一个系统时需要连同其在C盘的三个开机文件删除，此时需要在控制面板中找到文件资源管理器中显示那三个受保护的文件（ntldr、NTDETECT.COM、boot.ini）
+
+	当要卸载的系统装在C盘之外，则可直接格式化，否则需要使用系统安装光盘中的系统修复功能，在安装分区选择时退出进行修复
+
+	win8卸载win7时开始运行msconfig删除win7的系统引导再格式化
+
+	系统切换时盘符也会自动切换 
+
+	系统修复——
+	系统修复可用光盘和U盘
+
+	Microsoft Fix it Center 是一系统故障修复工具，免费
+
+	win7 与win xp重装的最大区别在于它不会格式化安装分区，它产生windows.old
+
+	windows pe（Windows PreInstallation Environment
+	）系统下恢复windows系统
+
+	系统安装更新即为补丁
+
+	备份还原——
+
+	系统还原点在此电脑高级系统设置里
+
+	ghost可一键备份
+
+	老毛桃WinPe U盘版——电脑将启动U盘中的windows pe系统，可进行备份还原
+
+	QQ主面板可导出聊天记录以保存
+
+	高级操作——
+	msconfig为系统配置实用程序
+
+	cmd是命令提示符窗口，它可以实现用户与操作系统的直接交流，并负责用户输入的所有命令
+	的解释和支持
+
+	regedit为注册表，含有各种数据
+
+	有些操作在xp系统中需要“运行”而win7及以上不需要
+
+	驱动程序——
+	万能网卡并非万能，需要在设备管理器中的网络适配器中进行更新浏览安装
+
+	更新驱动右键网络适配器自动搜索或驱动精灵
+
+	zip在win7和win7及以上不需其他软件
+
+	资源共享——
+	资源共享是指多个操作系统或多台电脑共用一个系统资源
+
+	局域网资源共享只能对文件夹进行，且在共享前需进行各种操作
+
+	杂七杂八——
+	修复坏道磁盘的一个可能性的方法是cmd中输入chkdsk X：/f其中X为某一盘符
+
+	Search and Recover、FinalData、Recuva（搜索功能相对多些）是非常经典的数据恢复工具
+
+	离线下载最终仍需取回本地进行下载
+
+	预装win8.1装win7：
+	目前UEFI/GPT仅仅支持64位系统启动安装；
+	你在UEFI模式下安装的系统,只能用UEFI模式引导;同理,如果你是在Legacy模式下安装的系统,也只能在legacy模式下进系统；
+	Win7 64位是支持UEFI的，只是UEFI+GPT分区安装WIn7不容易激活；
+	原版系统没有网卡驱动，所以安装时最好是在PE环境下，；
+	先进BIOS把启动模式改成legacy， Secure Boot（status）改称disabled，os optimized default需要设置other OS
+	进入“Security”——“Secure Boot”，将其设为 “Disabled”。这是Windows8新引入的安全机制，不关闭不能安装其它操作系统；
+	如果不在pe下安装，则需先将系统解压在U盘根目录，并将bootmgr改为win7mgr
+	进入PE系统；
+	将GPT格式转换为mbr：进入PE系统，shift+F10->Diskpart->list disk->select disk 0->Clean->convert mbr；当然使用Diskgenius，用diskgenius删除所有分区，然后在硬盘菜单下将主引导记录改成MBR，接着安装正常方式安装win7；
+	如果用用虚拟光驱加载系统，可按setup，也可用NT6工具提取install文件安装；
+	如果在用NT6，需要点击“选择”，找到之前下载的系统镜像文件的解压文件夹下sources文件夹中的install.wim，单系统的引导驱动器和安装磁盘的位置都选c盘；
+	NT6是个安装器，自带引导功能，替代了除install外文件的功能；
+	PE下盘符可能不同；
+	打开U盘，找到\sources\install.wim文件，使用7z或者好压解开这个文件，将文件中的 \Windows\Boot\EFI\ 这个目录下的bootmgfw.efi, 将其复制到你的电脑上, 并重命名为bootx64.efi.  然后在U盘里找到\efi\Microsoft这个目录,这个目录下的boot文件夹复制到上一级目录去, 也就是\efi\boot, 并把刚改名的bootx64.efi也放进这个boot文件夹。完成后这个U盘就被BIOS的UEFI启动模式认为是启动盘了；
+	量产虽然是一个词，但指的却是2个不同的功能—修复U盘或者是制作只读的启动U盘（USB-CDCOM）；
+
+	安装经验:
+	一旦设为legacy就可以不用关心secure boot，将USB设为唯一enabled,而且还要将U盘的优先级设在硬盘之前，用NT6工具可以先将iso解压出来，老毛桃支持从PE界面换成硬盘接口引导系统安装，所以不用拔掉U盘也可以
+	U盘要带有网卡和驱动管理，针对机型去官网下载，不要驱动管理冲突了激活软件可以在线运行，
+	并非所有在D盘安装的软件都会自动创建一个目录将所有的东西放进去，可能会将一些文件放在D盘根目录下，AU是32位的，默认的快捷方式不能在桌面打开时可以在exe文件右键创建快捷方式，要想让主题透明，需要要个性化那里先设置个默认主题再改壁纸，触控板要启动按钮和反向滚动，火狐这那好登录即可进行同步,hao123在重装系统之后无法进行追击,securecrt破解直接用破解版,否则浪费时间,搜狗皮肤为星空下的四叶草,隐藏状态栏并显示输入法指示器,注册表修改远程桌面的端口时需要重启才能更新，安装完JDK后不能配置环境变量就可以直接用eclipse
+
+	</p>
+	</div>
+	<script>
+	var a=document.getElementById("Operation-content").innerHTML;
+	var b=a.replace(/\n/g,"</br>");
+	document.getElementById("Operation-content").innerHTML=b;
+	</script>
+
+	<div id="LinuxProject" class="tab-pane fade">
+	<h1 style="text-align:center;">Linux Project</h1>
+	<p id="LinuxProject-content">
+	安装其他的桌面
+	   yum -y install epel-release          
+	   vim /etc/yum.repos.d/CentOS-Base.repo            centosplus中的enable设为1          
+	   yum --enablerepo=epel -y groups install "Xfce"            
+	   echo "exec /usr/bin/xfce4-session" >> ~/.xinitrc 
+
+	启动FTP服务
+	yum install vsftpd有些发行版默认没有enabled资源库
+	firewall-cmd --reload
+	setsebool -P ftpd_full_access=on
+	systemctl start vsftpd.service 
+	firewall-cmd --add-service=ftp
+	主机不是localhost.localdomain二是 192.163.1.113，selinux不允许root登陆
+
+	安装Vmware
+	VMware for linux 文件后缀为.bundle,保证权限后可以执行该文件进行图形界面的安装
+	出现找不到头文件时 yum install "kernel-devel-uname-r == $(uname -r)"而不是更新linux-headers-$(uname -r) kernel-devel包只包含用于内核开发环境所需的内核头文件以及Makefile
+	序列号5A02H-AU243-TZJ49-GTC7K-3C61N
+
+	配置java开发环境
+	  184  rpm -qa | grep java
+	  185  rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.65-3.b17.el7.x86_64
+	  186  rpm -e --nodeps java-1.8.0-openjdk-1.8.0.65-3.b17.el7.x86_64
+	  187  rpm -e --nodeps tzdata-java-2015g-1.el7.noarch
+	  188  rpm -qa | grep java
+	  189  cp /home/r/下载/jdk-8u101-linux-x64.rpm /usr/local
+	  190  cd /usr/local                                                   默认安装在/usr/java
+	  191  rpm -ivh jdk-8u101-linux-x64.rpm
+	  192  java
+	  193  java -version
+	  194  ll /vi/profile
+	  195  ll /etc/profile
+	  196  vim /etc/profile 配置环境变量
+	JAVA_HOME=/usr/java/jdk1.8.0_101
+	JRE_HOME=/usr/java/jdk1.8.0_101/jre
+	PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+	CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+	export JAVA_HOME JRE_HOME PATH CLASSPATH
+	  197  source /etc/profile
+	  198  echo $PATH
+
+	tar -zxvf eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz -C /opt
+	ln -s /opt/eclipse/eclipse /usr/bin/eclipse
+	vi /usr/share/applications/eclipse.desktop
+	 [Desktop Entry]
+	*Encoding=UTF-8
+	*Name=Eclipse 4.4.1
+	 Comment=Eclipse Luna
+	*Exec=/usr/bin/eclipse
+	*Icon=/opt/eclipse/icon.xpm
+	 Categories=Application;Development;Java;IDE
+	 Version=1.0
+	*Type=Application
+	 Terminal=0
+
+	vim配置
+	mkdir ~/.vimrc
+	vim ~/.vimrc               //实现括号引号自动补齐
+	 inoremap ( ()<left>
+	 inoremap { {}<left>
+	 inoremap < <><left>
+	 inoremap " ""<left>
+
+	插件管理
+	mkdir -p ~/.vim/bundle
+	cd ~/.vim/bundle
+	git clone https://github.com/gmarik/Vundle.vim.git
+	vim ~/.vimrc
+	  set nocompatible
+	  filetype off
+	  set rtp+=~/.vim/bundle/Vundle.vim
+	  call vundle#begin()
+	  Plugin 'gmarik/Vundle.vim'
+	  Plugin 'tpope/vim-fugitive'
+	  Plugin 'L9'
+	  Plugin 'file:///home/gmarik/path/to/plugin'
+	  Plugin 'rstacruz/sparkup',{'rtp': 'vim/'}
+	  Plugin 'user/L9',{'name': 'newL9'}
+	  call vundle#end()
+	  filetype plugin indent on
+	之后若想安装其他插件，一般在~/.vimrc中加入Plugin ‘*’保存后在~/.vimrc命令行模式下输入PluginInstall即可
+
+	忘记root密码解救
+	开机某项按e，在内核额外参数后加上rd.break
+	mount -o remount,rm /sysroot
+	chroot /sysroot
+	echo ".*" | --stdin root
+	方案一：./autorelabel ;exit ; reboot
+	方案二：vim /etc/selinux/config 设置为Permissive；exit；reboot；重启后restorecon -Rv /etc 在改为Enforcing
+
+	git使用
+	mkdir -p /git/project
+	cd /git/project/
+	git config --global user.name 'ethnicitybeta'
+	git config --global user.email 'ethnicitybeta@126.com'
+	git init    //git的初始化
+	git config user.name 'ethniciy'
+	git config user.email 'ethnicity@126.com'
+	git add .   //加入到git
+	.git/下边出现的index就是Staging area
+	git commit -m '1st commit'  //提交生成第一个commit   提交到当前分支
+	git status 
+	git log  --pretty=oneline 或 git log --graph --pretty=oneline --abbrev-commit
+	git reflog
+	git reset --hard commit_id
+	目录为工作区，而.git为版本库
+	用git diff HEAD -- file命令可以查看工作区和版本库里面最新版本的区别
+	git checkout -- file可以丢弃工作区的修改，适用于未添加到暂存区
+	git reset HEAD file可以把暂存区的修改撤销掉（unstage），重新放回工作区，HEAD表示最新的版本，执行后修改任在工作区
+	git rm file
+	ssh-keygen -t rsa -C "584899522@qq.com"  ~/.ssh/id_rsa是私钥，不能泄露出去，id_rsa.pub是公钥，可以放心地告诉任何人。并在github中添加ssh
+	git remote add origin git@github.com:guoguorui0/learngit.git 关联远程库
+	git push -u origin master第一次推送master分支时，加上了-u参数，Git不但会把本地的master分支内容推送的远程新的master分支，还会把本地的master分支和远程的master分支关联起来，在以后的推送或者拉取时就可以简化命令
+		git clone git://github.com:xxxx/test.git ##以gitreadonly方式克隆到本地，只可以读                在pwd下生成一个dir
+		git clone git@github.com:xxx/test.git  ##以SSH方式克隆到本地，可以读写  
+		git clone https://github.com/xxx/test.git ##以https方式克隆到本地，可以读写  
+		git fetch git@github.com:xxx/xxx.git  ##获取到本地但不合并  
+		git pull git@github.com:xxx/xxx.git ##获取并合并内容到本地  
+	git remote rm xxx   ##删除远程版本库的别名   
+	git branch #显示所有分支和当前分支
+	git branch new-feature  #创建分支     -d表示删除
+	git checkout new-feature  #切换到新分支  
+	git push origin new-feature  ##把分支提交到远程服务器，只是把分支结构和内容提交到远程，并没有发生和主干的合并行为
+	git merge new-feature  ##把分支合并到主干  将master指向分支的当前修改   --no-ff参数，表示禁止fast forward模式（改变master的指向），原理是产生一个commit,加上--no-ff参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而fast forward合并就看不出来曾经做过合 并。
+	HEAD指向的就是当前分支（当前分支指向当前提交），而master未必指向当前提交
+	Git还提供了一个stash功能，可以把当前工作现场“储藏”起来，等以后恢复现场后继续工作,git stash list 查询 git stash apply恢复，但是恢复后，stash内容并不删除，你需要用git stash drop来删除；
+	另一种方式是用git stash pop，恢复的同时把stash内容也删了
+	在本地创建和远程分支对应的分支，使用git checkout -b branch-name origin/branch-name，本地和远程分支的名称最好一致
+	推送时，要指定本地分支，这样，Git就会把该分支推送到远程库对应的远程分支上,例git push origin dev
+	在git pull之前可能需要 git branch --set-upstream dev origin/dev 指定本地dev分支与远程origin/dev分支的链接
+	Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针 git tag version commit_id默认最新commit用git tag
+	列举，用git show version查看详情
+	fork将别人的远程库复制到自己的远程库，这样就有push自己的权限，而pull request是请求作者接受修改的
+	git config --global alias.lg "log --color --graph --pretty=format  <!-- 这里的颜色设置冲突，暂时去除-->
+	假设git服务器：
+	yum install -y git
+	adduser git  
+	mkdir .*/.*.git && chown git:git learngit.git  && cd .*/.*.git 
+	git init   
+	vim /etc/ssh/sshd_config
+	1.RSAAuthentication yes     
+	2.PubkeyAuthentication yes     
+	3.AuthorizedKeysFile  .ssh/authorized_keys
+	mkdir /home/git/.ssh/ && touch /home/git/.ssh/authorized_keys
+	客户端ssh-keygen -t rsa -C "youremail@example.com" 并将rsa上面的文件，注意复制粘贴的完整
+	若考虑安全，则/etc/passwd的git的bash改为/sbin/nologin或/usr/bin/git-shell  
+
+	lvm的扩展
+	用gdisk或fdisk新建一块分区，注意将其标识符设为lvm（8e）的模式
+	pvcreate /dev/sda9
+	vgextend vgname /dev/sda9
+	lvresize -L 11G /dev/vgname/lvname
+	resize2fs /dev/vgname/lvname 该lv挂载被挂载在某文件系统
+
+	quota的建立
+	useradd.sh:
+	{
+	#!/bin/bash
+	groupadd groupname
+	for username in username1 username2 username3
+	do
+		 useradd -G groupname $username
+		  echo "password" | passwd --stdin $username
+	done
+	mkdir /home/share
+	chgrp groupname /home/share
+	chmod 2770 /home/share
+	}
+	在CentOS7下quota可在目录实现
+	vim /etc/fstab在/home的default后加上usrquota，grpquota
+	umount  /home && mount -a 此时要将一般用户注销才不会占用/home
+	quotacheck -avgu会在对应目录下生成aquota.user和aquota.group文件
+	quotaon -avug查询quoatcheck产生的文件
+	edquota -u username1会进入vim界面进行设置
+	edquota -p username1 username2进行信息的复制
+	至于查询，quotacheck -avgu ; repquota -au
+	一般用于quota的文件系统会结合lvm使用
+
+
+	编译安装网卡驱动
+	以下是Intel网卡驱动地址
+	http://downloadcenter.intel.com/SearchResult.aspx?lang=eng&keyword=%27e1000-%27
+	tar -zxvf e1000-8.0.30.tar.gz -C /usr/local/src
+	cd /usr/local/src/e1000-8.0.30/
+	cd src
+	make install
+	rmmod e1000  先移除已经加载在内存中的旧模块
+	modprobe e1000
+
+	关闭某个端口
+	netstat -tnlp | grep 111
+	which rpcbind
+	rpm -qf /sbin/rpcbind
+	rpm -qc rpcbind | grep init
+	/etc/init.d/rpcbind stop
+
+	开启路由器功能 
+
+	Linux Route端
+	vim /etc/sysctl.conf 中 net.ipv4.ip_forward = 1
+	 sysctl -p 让设定生效
+	vim /etc/sysconfig/network-scripts/ifcfg-eth0作为对外接口
+	vim /etc/sysconfig/network-scripts/ifcfg-eth1作为对内接口
+	/etc/init.d/iptables stop
+	 /etc/init.d/network restart
+	Route Ａ端
+	vim /etc/sysconfig/network-scripts/route-eth0
+	加入192.168.100.0/24 via 192.168.1.100 dev eth0以让Route A的数据可以传回192.168.100.0网域
+
+	加入动态调整机制
+	未来你进行任何路由规则的变动， 或者是整个网域的主机 IP 进行更动，你将不需要重新到每部 Router 上更动！ 因为这些路由器会自动的更新他们自己的规则喔
+	yum install quagga
+	vim /etc/quagga/zebra.conf
+	{
+	hostname www.centos.vbird           <==给予这个路由器一个主机名，随便取！password linuxz1                    <==给予一个密码！
+	enable password linuxz1             <==将这个密码生效！
+	log file /var/log/quagga/zebra.log  <==将所有 zebra 产生的信息存到登录文件中
+	}
+	/etc/init.d/zebra start
+	chkconfig zebra on
+	vim /etc/quagga/ripd.conf
+	{
+	hostname www.centos.vbird           <==这里是设定 Router 的主机名而已
+	password linuxz1                    <==设定好你自己的密码喔！
+	debug rip events                    <==可以记录较多的错误讯息！
+	debug rip packet                    <==鸟哥透过这个讯息解决很多问题
+	router rip                          <==启动 Router 的 rip 功能
+	 version 2                          <==启动的是 RIPv2 的服务 (默认值)
+	 network 192.168.1.0/24             <==这两个就是我们管理的接口啰！
+	 network 192.168.100.0/24
+	interface eth0                      <==针对外部的那个接口，要略过身份验证的方式
+	no ip rip authentication mode      <==就是这个项目！不要验证身份！
+	log file /var/log/quagga/zebra.log  <==登录档设定与 zebra 相同即可
+	}
+	/etc/init.d/ripd start
+	chkconfig ripd on
+
+	架设防火墙路由器
+	[root@www ~]# mkdir -p /usr/local/virus/iptables
+	[root@www ~]# cd /usr/local/virus/iptables
+	[root@www iptables]# vim iptables.rule
+	#!/bin/bash
+
+	# 请先输入您的相关参数，不要输入错误了！
+	  EXTIF="eth0"             # 这个是可以连上 Public IP 的网络接口
+	  INIF="eth1"              # 内部 LAN 的连接接口；若无则写成 INIF=""
+	  INNET="192.168.100.0/24" # 若无内部网域接口，请填写成 INNET=""
+	  export EXTIF INIF INNET
+
+	# 第一部份，针对本机的防火墙设定！##########################################
+	# 1. 先设定好核心的网络功能：
+	  echo "1" > /proc/sys/net/ipv4/tcp_syncookies
+	  echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
+	  for i in /proc/sys/net/ipv4/conf/*/{rp_filter,log_martians}; do
+			echo "1" > $i
+	  done
+	  for i in /proc/sys/net/ipv4/conf/*/{accept_source_route,accept_redirects,\
+	send_redirects}; do
+			echo "0" > $i
+	  done
+
+	# 2. 清除规则、设定默认政策及开放 lo 与相关的设定值
+	  PATH=/sbin:/usr/sbin:/bin:/usr/bin:/usr/local/sbin:/usr/local/bin; export PATH
+	  iptables -F
+	  iptables -X
+	  iptables -Z
+	  iptables -P INPUT   DROP
+	  iptables -P OUTPUT  ACCEPT
+	  iptables -P FORWARD ACCEPT
+	  iptables -A INPUT -i lo -j ACCEPT
+	  iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT
+
+	# 3. 启动额外的防火墙 script 模块
+	  if [ -f /usr/local/virus/iptables/iptables.deny ]; then
+			sh /usr/local/virus/iptables/iptables.deny
+	  fi
+	  if [ -f /usr/local/virus/iptables/iptables.allow ]; then
+			sh /usr/local/virus/iptables/iptables.allow
+	  fi
+	  if [ -f /usr/local/virus/httpd-err/iptables.http ]; then
+			sh /usr/local/virus/httpd-err/iptables.http
+	  fi
+
+	# 4. 允许某些类型的 ICMP 封包进入
+	  AICMP="0 3 3/4 4 11 12 14 16 18"
+	  for tyicmp in $AICMP
+	  do
+		iptables -A INPUT -i $EXTIF -p icmp --icmp-type $tyicmp -j ACCEPT
+	  done
+
+	# 5. 允许某些服务的进入，请依照你自己的环境开启
+	# iptables -A INPUT -p TCP -i $EXTIF --dport  21 --sport 1024:65534 -j ACCEPT # FTP
+	# iptables -A INPUT -p TCP -i $EXTIF --dport  22 --sport 1024:65534 -j ACCEPT # SSH
+	# iptables -A INPUT -p TCP -i $EXTIF --dport  25 --sport 1024:65534 -j ACCEPT # SMTP
+	# iptables -A INPUT -p UDP -i $EXTIF --dport  53 --sport 1024:65534 -j ACCEPT # DNS
+	# iptables -A INPUT -p TCP -i $EXTIF --dport  53 --sport 1024:65534 -j ACCEPT # DNS
+	# iptables -A INPUT -p TCP -i $EXTIF --dport  80 --sport 1024:65534 -j ACCEPT # WWW
+	# iptables -A INPUT -p TCP -i $EXTIF --dport 110 --sport 1024:65534 -j ACCEPT # POP3
+	# iptables -A INPUT -p TCP -i $EXTIF --dport 443 --sport 1024:65534 -j ACCEPT # HTTPS
+
+
+	# 第二部份，针对后端主机的防火墙设定！###############################
+	# 1. 先加载一些有用的模块
+	  modules="ip_tables iptable_nat ip_nat_ftp ip_nat_irc ip_conntrack 
+	ip_conntrack_ftp ip_conntrack_irc"
+	  for mod in $modules
+	  do
+		  testmod=`lsmod | grep "^${mod} " | awk '{print $1}'`
+		  if [ "$testmod" == "" ]; then
+				modprobe $mod
+		  fi
+	  done
+
+	# 2. 清除 NAT table 的规则吧！
+	  iptables -F -t nat
+	  iptables -X -t nat
+	  iptables -Z -t nat
+	  iptables -t nat -P PREROUTING  ACCEPT
+	  iptables -t nat -P POSTROUTING ACCEPT
+	  iptables -t nat -P OUTPUT      ACCEPT
+
+	# 3. 若有内部接口的存在 (双网卡) 开放成为路由器，且为 IP 分享器！
+	  if [ "$INIF" != "" ]; then
+		iptables -A INPUT -i $INIF -j ACCEPT
+		echo "1" > /proc/sys/net/ipv4/ip_forward
+		if [ "$INNET" != "" ]; then
+			for innet in $INNET
+			do
+				iptables -t nat -A POSTROUTING -s $innet -o $EXTIF -j MASQUERADE
+			done
+		fi
+	  fi
+	  # 如果你的 MSN 一直无法联机，或者是某些网站 OK 某些网站不 OK，
+	  # 可能是 MTU 的问题，那你可以将底下这一行给他取消批注来启动 MTU 限制范围
+	  # iptables -A FORWARD -p tcp -m tcp --tcp-flags SYN,RST SYN -m tcpmss \
+	  #          --mss 1400:1536 -j TCPMSS --clamp-mss-to-pmtu
+
+	# 4. NAT 服务器后端的 LAN 内对外之服务器设定
+	# iptables -t nat -A PREROUTING -p tcp -i $EXTIF --dport 80 \
+	#          -j DNAT --to-destination 192.168.1.210:80 # WWW
+
+	# 5. 特殊的功能，包括 Windows 远程桌面所产生的规则，假设桌面主机为 1.2.3.4
+	# iptables -t nat -A PREROUTING -p tcp -s 1.2.3.4  --dport 6000 \
+	#          -j DNAT --to-destination 192.168.100.10
+	# iptables -t nat -A PREROUTING -p tcp -s 1.2.3.4  --sport 3389 \
+	#          -j DNAT --to-destination 192.168.100.20
+
+	# 6. 最终将这些功能储存下来吧！
+	  /etc/init.d/iptables save
+
+	[root@www iptables]# vim iptables.allow
+	#!/bin/bash
+	# 底下则填写你允许进入本机的其他网域或主机啊！
+	  iptables -A INPUT -i $EXTIF -s 140.116.44.0/24 -j ACCEPT
+
+	# 底下则是关于抵挡的档案设定法！
+	[root@www iptables]# vim iptables.deny
+	#!/bin/bash
+	# 底下填写的是『你要抵挡的那个咚咚！』
+	  iptables -A INPUT -i $EXTIF -s 140.116.44.254 -j DROP
+
+	[root@www iptables]# chmod 700 iptables.*
+	[root@www ~]# vim /etc/rc.d/rc.local
+	....(其他省略)....
+	# 1. Firewall
+	/usr/local/virus/iptables/iptables.rule
+
+
+	配置DHCP服务器
+	yum install dhcp
+	vim /etc/dhcp/dhcpd.conf
+	{
+	# 1. 整体的环境设定
+	ddns-update-style            none;            <==不要更新 DDNS 的设定
+	ignore client-updates;                        <==忽略客户端的 DNS 更新功能
+	default-lease-time           259200;          <==预设租约为 3 天
+	max-lease-time               518400;          <==最大租约为 6 天
+	option routers               192.168.100.254; <==这就是预设路由
+	option domain-name           "centos.vbird";  <==给予一个领域名
+	option domain-name-servers   168.95.1.1, 139.175.10.20;
+	# 上面是 DNS 的 IP 设定，这个设定值会修改客户端的 /etc/resolv.conf 档案内容
+
+	# 2. 关于动态分配的 IP
+	subnet 192.168.100.0 netmask 255.255.255.0 {
+		range 192.168.100.101 192.168.100.200;  <==分配的 IP 范围
+
+		# 3. 关于固定的 IP 啊！
+		host win7 {
+			hardware ethernet    08:00:27:11:EB:C2; <==客户端网卡 MAC
+			fixed-address        192.168.100.30;    <==给予固定的 IP
+		}
+	}
+	# 相关的设定参数意义，请查询前一小节的介绍，或者 man dhcpd.conf
+	}
+	/etc/init.d/dhcpd start
+	chkconfig dhcpd on
+
+	服务器端信息存储在
+	/var/lib/dhcpd/dhcpd.leases    
+	而客户端信息存储在
+	/var/lib/dhclient/dhclient*
+
+
+	搭载samba服务器
+	yum install {samba,samba-client,samba-common}
+	[root@www samba]# cp smb.conf smb.conf.raw  <==先备份再说！
+	[root@www samba]# vim smb.conf
+	# 1. 先设定好服务器整体环境方面的参数
+	[global]
+			# 与主机名有关的设定信息
+			workgroup     = vbirdhouse
+			netbios name  = vbirdserver
+			server string = This is vbird's samba server
+
+			# 与语系方面有关的设定项目喔，为何如此设定请参考前面的说明
+			unix charset    = utf8
+			display charset = utf8
+			dos charset     = cp950
+
+			# 与登录文件有关的设定项目，注意变量 (%m)
+			log file = /var/log/samba/log.%m
+			max log size = 50
+
+			# 这里才是与密码有关的设定项目哩！
+			security = user
+		  passwd backend = tdbsam <==使用TDB数据库格式
+
+			# 修改一下打印机的加载方式，不要加载啦！
+			load printers    = no
+
+	# 2. 分享的资源设定方面：主要得将旧的批注，新的加入！
+	#    先取消 [homes], [printers] 的项目，然后针对 /tmp 的设定，可浏览且可写入喔
+	[homes]                                   <==分享的资源名称
+			comment        = Home Directories
+			browseable     = no               <==除了使用者自己外，不可被其他人浏览
+			writable       = yes              <==挂载后可擦写此分享
+			create mode    = 0664             <==建立档案的权限为 664
+			directory mode = 0775             <==建立目录的权限为 775
+
+	[project]                                 <==就是那三位使用者的共享资源
+			comment    = smbuser's project
+			path       = /home/project        <==实际的 Linux 上面的目录位置
+			browseable = yes                  <==可被其他人所浏览到资源名称(非内容)
+			writable   = yes                  <==可以被写入
+			write list = @users               <==写入者有哪些人的意思
+
+	其中project目录设定成为工作组的工作目录
+	[root@www ~]# mkdir /home/project
+	[root@www ~]# chgrp users /home/project
+	[root@www ~]# chmod 2770 /home/project
+
+	命令testparm进行配置的检查
+
+	[root@www ~]# pdbedit -a -u {smb1,smb2,smb3}
+	[root@www ~]# setsebool -P samba_enable_home_dirs=1    <==否则出现无法挂载的情况
+	[root@www ~]# chcon -t samba_share_t /home/project     <==其他服务可能需要用到public_content_t
+	结合实际情况进行iptables的设定
+	在被REJECT的规则之前加上（可用iptables -L -n --line-number查询）
+	iptables -I INPUT [reject的规则数] -p tcp -m multiport --dport 139,445 -j ACCEPT
+	若仅是局域网，可以
+	[root@www ~]# vim /etc/samba/smb.conf
+	[global]
+			# 跟防火墙的议题有关的设定
+			hosts allow = 127. 192.168.100.254 192.168.100.10 192.168.1.
+	除此之外还要考虑到quota进行用户磁盘分配限制
+	[root@www ~]# /etc/init.d/smb start
+	[root@www ~]# /etc/init.d/nmb start
+	[root@www ~]# chkconfig smb on
+	[root@www ~]# chkconfig nmb on
+
+	smbstatus可查询客户端登录状况
+
+	linux客户端登录
+	smbclient '//[IP|hostname]/资源名称' [-U username]
+	mount -t cifs //IP/分享资源 /挂载点 [-o options]
+	-o 后面接的参数 (options) 常用的有底下这些：
+	   username=你的登入账号：例如 username=smb1
+	   password=你的登入密码：需要与上面 username 相对应啊！
+	   iocharset=本机的语系编码方式，如 big5 或 utf8 等等；
+	   codepage=远程主机的语系编码方式，例如繁体中文为cp950
+
+	windows客户端登录
+
+	有时需要进行如下设置（8.1以下）
+	运行secpol.msc在本地安全策略窗口中依次打开“本地策略”-》“安全选项”，然后再右侧的列表中找到“网络安全：LAN 管理器身份验证级别”，把这个选项的值改为“发送 LM 和 NTLM – 如果已协商，则使用 NTLMv2 会话安全”
+
+	防火墙设置
+	文件和打印机共享（SMB-In）进站和出站设置作用域
+
+	net use查询连接信息
+	net use * /del 中断所有连接
+
+
+	搭载Proxy服务器
+	yum install squid
+	修改/etc/squid/squid.conf
+	{
+	auth_param basic program /usr/lib64/squid/ncsa_auth /etc/squid/squid_user.txt
+	auth_param basic children 5
+	auth_param basic realm Welcome to VBird's proxy-only web server
+
+	cache_dir ufs /var/spool/squid 500 16 256
+	cache_dir ufs /srv/squid 2000 16 256
+	cache_mem 32 MB
+
+	# http_access 是有顺序的，因此建议你找到底下这个关键词行后，将你的资料加在后面
+	# INSERT YOUR OWN RULE(S) HERE TO ALLOW ACCESS FROM YOUR CLIENTS
+	acl vbirdlan src 192.168.1.0/24 192.168.100.0/24
+	acl dropdomain dstdomain .facebook.com
+	acl dropsex urlpath_regex /sexy.*jpg$
+	acl squid_user proxy_auth REQUIRED
+
+	http_access deny dropdomain  <==这三行的『顺序』很重要！
+	http_access deny dropsex
+	http_access allow vbirdlan    <==通常的作法是，先将要拒绝的写上去，然后才写要放行的数据就好了
+	http_access allow squid_user 
+	acl QUERY urlpath_regex cgi-bin \?
+
+	cache deny QUERY  <==重点就是这一行！可以拒绝，不要让后面的 URL 被快取！
+	acl denyphp urlpath_regex \.php$
+	cache deny denyphp
+	http_port 3128  transparent  <==进行端口映射,有时要牺牲快取的功能
+
+	}
+
+	配置文件 (/etc/squid/ 内的数据) 类型是 squid_conf_t 的样式， 而快取目录的类型则是 squid_cache_t 的类型，且上层类型 (/var/spool/) 应该是要成为 var_t 之类的才行。 修改的方法就是透过 chcon 来处理即可。
+
+	其中/srv/squid需要进行如下操作
+	root@www ~]# mkdir /srv/squid
+	[root@www ~]# chmod 750 /srv/squid
+	[root@www ~]# chown squid:squid /srv/squid
+	[root@www ~]# chcon --reference /var/spool/squid /srv/squid
+	[root@www ~]# ll -Zd /srv/squid
+	drwxr-x---. squid squid system_u:object_r:squid_cache_t:s0 /srv/squid/
+
+	除此之外还要进行防火墙放行
+	iptables -A INPUT -i $EXTIF -p tcp -s 192.168.1.0/24 --dport 3128 -j ACCEPT
+	如何要做端口映射
+	iptables -t nat -A PREROUTING -i $INIF -s 192.168.100.0/24 -p tcp --dport 80 -j REDIRECT --to-ports 3128
+
+	如何要进行外网验证
+	yum install httpd   
+	[root@www ~]# htpasswd -c /etc/squid/squid_user.txt vbird
+	New password:
+	Re-type new password:
+	Adding password for user vbird
+	# 第一次建立才需要加上 -c 的参数，否则不需要加上 -c 喔！
+
+	/etc/init.d/squid start
+	chkconfig squid on
+
+
+
+	搭载WWW服务器
+	yum install httpd mysql mysql-server php php-mysql
+
+		httpd (提供 Apache 主程式)
+		mysql (MySQL 客戶端程式)
+		mysql-server (MySQL 伺服器程式)
+		php (PHP 主程式含給 apache 使用的模組)
+		php-devel (PHP 的發展工具，這個與 PHP 外掛的加速軟體有關)
+		php-mysql (提供給 PHP 程式讀取 MySQL 資料庫的模組)
+
+	/etc/httpd/conf/httpd.conf (主要設定檔)httpd 最主要的設定檔
+	/etc/httpd/conf.d/*.conf (很多的額外參數檔，副檔名是 .conf)
+	/var/www/html/這就是我們 CentOS 預設的 apache 『首頁』所在目錄啦
+	/etc/my.cnf這個是 MySQL 的設定檔
+	/var/lib/mysql/這個目錄則是 MySQL 資料庫檔案放置的所在處
+	/etc/php.ini就是 PHP 的主要設定檔
+	/usr/lib64/httpd/modules/libphp5.so PHP 這個軟體提供給 Apache 使用的模組
+	/etc/php.d/mysql.ini, /usr/lib64/php/modules/mysql.so你的 PHP 是否可以支援 MySQL 介面呢？就看這兩個東西啦！
+	/var/log/httpd/ 日志
+
+	vim /etc/httpd/conf/httpd.conf
+	{
+	KeepAlive On 
+	MaxKeepAliveRequests 500
+	KeepAliveTimeout 15
+	ServerAdmin vbird@www.centos.vbird
+	ServerName www.centos.vbird 
+	AddHandler cgi-script .cgi .pl    
+	<Directory "/var/www/html/cgi">  <==让该文件能执行CGI程序
+		Options +ExecCGI
+		AllowOverride None
+		Order allow,deny
+		Allow from all
+	</Directory>
+	<Directory "/var/www/html/lan">  <==限制该目录的访问而不是整个网站
+		Options FollowSymLinks
+		AllowOverride None
+		Order deny,allow
+		deny from all
+		allow from 192.168.1.0/24     <==该网段既属于allow，也属于deny，所以默认为预设的allow
+	</Directory>
+	<Directory "/var/www/html/lan">
+		AllowOverride none
+		Options FllowSymLinks
+
+		# 先允許能夠進行 GET, POST 與 OPTIONS 啦！
+		<Limit GET POST OPTIONS>
+			Order allow,deny
+			Allow from all
+		</Limit>
+
+		# 再規定除了這三個動作之外，其他的動作通通不允許啦！
+		<LimitExcept GET POST OPTIONS>
+			Order deny,allow
+			Deny from all
+		</LimitExcept>
+	</Directory>
+
+	<Directory "/var/www/html/protect">   <==让改目录的配置交给.htaccess
+		AllowOverride AuthConfig
+		Order allow,deny
+		Allow from all
+	</Directory>
+
+	}
+	[root@www ~]# mkdir /var/www/html/cgi
+	[root@www ~]# vim /var/www/html/cgi/helloworld.pl
+	#!/usr/bin/perl
+	print "Content-type: text/html\r\n\r\n";
+	print "Hello, World.";
+	[root@www ~]# chmod a+x /var/www/html/cgi/helloworld.pl
+
+	[root@www ~]# mkdir /var/www/html/protect
+	[root@www ~]# vim /var/www/html/protect/index.html
+	{
+	<html>
+	<head><title>這是個測試網頁啊！</title></head>
+	<body>看到這個畫面了嗎？如果看到的話，表示你可以順利進入本受保護網頁啦！
+	</body></html>
+	}
+	[root@www ~]# htpasswd -c /var/www/apache.passwd test
+	New password:  <==這裡輸入一次密碼，注意，螢幕不會有任何訊息。
+	Re-type new password:  <==這裡再輸入一次
+	Adding password for user test
+
+	[root@www ~]# rpm -ivh awstats-7.0-1.noarch.rpm
+	[root@www ~]# cp /usr/local/awstats/tools/httpd_conf  \
+	> /etc/httpd/conf.d/awstats.conf
+	[root@www ~]# vim /etc/httpd/conf.d/awstats.conf
+	{
+	Alias /awstatsclasses "/usr/local/awstats/wwwroot/classes/"
+	Alias /awstatscss "/usr/local/awstats/wwwroot/css/"
+	Alias /awstatsicons "/usr/local/awstats/wwwroot/icon/"
+	Alias /awstats/ "/usr/local/awstats/wwwroot/cgi-bin/"
+	<Directory "/usr/local/awstats/wwwroot">
+		Options +ExecCGI
+		AllowOverride AuthConfig  <==這裡改成這樣，因為要保護！
+		Order allow,deny
+		Allow from all
+	</Directory>
+	}
+	[root@www ~]# cd /etc/awstats
+	[root@www awstats]# cp awstats.model.conf awstats.www.conf
+	[root@www awstats]# vim awstats.www.conf
+	{
+	# 找到底下這幾行，並且修改一下內容啊：
+	LogFile="/var/log/httpd/access_log"  <== 51行：確定登錄檔所在的位置
+	LogType=W                            <== 63行：針對 WWW 的登錄檔分析
+	LogFormat=1                          <==122行：Apache 的登錄檔格式
+	SiteDomain="www.centos.vbird"        <==153行：主機的 hostname
+	HostAliases="localhost 127.0.0.1 REGEX[centos\.vbird$]"
+	DirCgi="/awstats"                    <==212行：能夠執行 awstats 的目錄
+	DirIcons="/awstatsicons"             <==222行：awstats 一些小圖示的目錄
+	AllowToUpdateStatsFromBrowser=0      <==239行：不要利用瀏覽器來更新！
+	Lang="tw"                            <==905行：重要！這是語系！
+	}
+	[root@www awstats]# cd /usr/local/awstats/wwwroot/cgi-bin
+	[root@www cgi-bin]# perl awstats.pl -config=www -update  \
+	> -output > index.html
+	# 那個 -config 後面接的就是 awstats.www.conf 的意思！會產生 index.html 
+	[root@www ~]# cd /usr/local/awstats/wwwroot
+	[root@www wwwroot]# vi .htaccess
+	AuthName     "Protect awstats data"
+	Authtype     Basic
+	AuthUserFile /var/www/apache.passwd
+	require      valid-user
+
+	vim /etc/php.ini
+	{
+	log_errors = On
+	ignore_repeated_errors = On  <==這個設定值調整一下 (因預設為 Off)
+	ignore_repeated_source = On  <==這個設定值調整一下
+	}
+
+	vim /etc/php.ini
+	{
+	post_max_size = 20M
+	upload_max_filesize = 16M
+	}
+
+
+	[root@www ~]# /etc/init.d/httpd start       <==立刻啟動啦！
+	[root@www ~]# /etc/init.d/httpd configtest  <==測試設定檔語法
+	[root@www ~]# chkconfig httpd on            <==開機啟動 WWW 啦！
+	[root@www ~]# /etc/init.d/mysqld start
+	[root@www ~]# chkconfig mysqld on
+
+	[root@www ~]# mysqladmin -u root password 'your.password'
+	# 從此以後 MySQL 的 root 帳號就需要密碼了！如下所示：
+	[root@www ~]# mysql -u root -p
+	Enter password:  <==你必須要在這裡輸入剛剛建立的密碼！
+	mysql> create database vbirddb;  <==注意每個指令後面都要加上分號 (;)
+	mysql> grant all privileges on vbirddb.* to vbirduser@localhost 
+	identified by 'vbirdpw' ;
+	mysql> show databases;
+	mysql> use mysql;
+	mysql> exit
+
+
+	vim /etc/my.cnf
+	{
+	在【mysqld】下添加
+	default-storage-engine=innodb
+	# 關於目錄資料與語系的設定等等；
+	default-character-set   = utf8   <==每個人的編碼都不相同，不要隨意跟我一樣
+	port                    = 3306
+	skip-locking
+	# 關於記憶體的設定，注意，記憶體的簡單計算方式為：
+	# key_buffer + (sort_buffer + read_buffer ) * max_connection
+	# 且總量不可高於實際的實體記憶體量！所以，我底下的資料應該是 OK 的
+	# 128 + (2+2)*150 = 728MB
+	key_buffer              = 128M
+	sort_buffer_size        = 2M
+	read_buffer_size        = 2M
+	join_buffer_size        = 2M
+	max_connections         = 150
+	max_connect_errors      = 10
+	read_rnd_buffer_size    = 4M
+	max_allowed_packet      = 4M
+	table_cache             = 1024
+	myisam_sort_buffer_size = 32M
+	thread_cache            = 16
+	query_cache_size        = 16M
+	tmp_table_size          = 64M
+	# 由連線到確定斷線的時間，原本是 28800 (sec) ，約 8 小時，我將他改為 20 分鐘！
+	wait_timeout            = 1200
+	thread_concurrency      = 8
+	innodb_data_file_path = ibdata1:10M:autoextend
+	innodb_buffer_pool_size = 128M
+	innodb_additional_mem_pool_size = 32M
+	innodb_thread_concurrency = 16
+	}
+
+
+	防火墙方面
+	iptables -A INPUT -p TCP -i $EXTIF --dport  80  --sport 1024:65534 -j ACCEPT
+	SELinux方面
+	setsebool -P httpd_can_network_connect=1
+
+	webalizer可以进行网站的流量记录
+	awstats更为全面
+
+	ssl需要
+	yum install mod_ssl
+	</p>
+	</div>
+	<script>
+	var a=document.getElementById("LinuxProject-content").innerHTML;
+	var b=a.replace(/\n/g,"</br>");
+	document.getElementById("LinuxProject-content").innerHTML=b;
+	</script>
+
+	</div>			<!-- tab-content end-->
+	</div>			<!-- col-10 end -->
+
+	<!-- 以下是用了BootStrap的上传文件的表单 -->
+
+	<div class="col-lg-2" style="margin-top:10px;margin-left:-10px;padding:0px;">
+
+	<div class="panel panel-default" style="width:200px;">
+		<div class="panel-heading" style="height:40px;text-align:center;" >
+			<label for="fileChoose"><span class="glyphicon glyphicon-upload"></span>上传笔记</label>
+		</div>
+		<div class="panel-body" style="padding:0px;margin:0px;">
+			<input id="lefile" type="file"  style="display:none">  
+			<form role="form" class="bs-example bs-example-form">
+				<div class="input-group">  
+					<span class="input-group-btn">
+						<a class="btn btn-default" onclick="$('#lefile').click();">Browse</a>
+					</span>
+					<input id="photoCover" class="form-control" type="text" readonly="yes" style="width:128px;cursor:default">  
+				</div>  
+				 <input type="button" class="form-control" onclick="XhrAjax();" value="确认上传" style="width:200px;"></button>
+                  <div id="log" style="display:none"></div>
+
+			</form>
+		<script>  
+		$('#lefile').change(function() {  
+		$('#photoCover').val($(this).val());  
+		});
+		
+		function XhrAjax() {
+			var log=document.getElementById("log");
+			var myform=new FormData();
+			var fileObj=document.getElementById("lefile").files[0];
+			myform.append('uploadfile',fileObj);
+			var xhr = new XMLHttpRequest();
+			xhr.onreadystatechange = function () {
+				if (xhr.readyState == 4) {
+					log.innerHTML=xhr.responseText;
+					$("#log").fadeIn(1000,fo);
+				}
+
+			};
+			xhr.open('POST', '/xhr_ajax/');
+			xhr.send(myform);       
+		}
+		
+		function fo(){
+		$("#log").fadeOut(5000);
+		}
+		</script>  
+		</div>
+	</div>
+
+
+	</div>
+	</div>		<!-- row end -->	
+		
+
+	<!-- 版权声明 -->
+	<hr/>
+	<p style="text-align:center; color:red;">ALL RIGHTS RESERVED BY 郭国锐</p>
+	<script>
+	$("a").bind("focus", function(){           <!-- 去除点击后留下的虚线框 -->
+       if(this.blur){
+                this.blur();
+      }
+	});
+	</script>
+	</body>
+	</html>

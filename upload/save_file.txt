@@ -1,0 +1,44 @@
+{
+#!/usr/bin/python3
+import cgi, os
+import cgitb; cgitb.enable()
+form = cgi.FieldStorage()
+
+import codecs, sys
+sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
+
+# 获取文件名
+fileitem = form['filename']
+
+# 检测文件是否上传
+if fileitem.filename:
+   # 设置文件路径 
+   fn = os.path.basename(fileitem.filename)
+   f1= open('/tmp/'+fn, 'wb')
+   f1.write(fileitem.file.read())
+   f1.close()
+   f2=codecs.open('/tmp/'+fn,'r','gbk')
+   a=f2.read()
+   f2.close()
+   f3=codecs.open('/tmp/'+fn,'w','utf-8')
+   f3.write(a+'\n')
+   f3.close()
+
+   message = '文件 "' + fn + '" 上传成功'
+   
+else:
+   message = '文件没有上传'
+   
+print ("""\
+Content-Type: text/html\n
+<html>
+<head>
+<meta charset="utf-8">
+<title>菜鸟教程(runoob.com)</title>
+</head>
+<body>
+   <p>%s</p>
+</body>
+</html>
+""" % (message,))
+}
